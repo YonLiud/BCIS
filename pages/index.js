@@ -37,7 +37,7 @@ export default function Home() {
               Lookup Footage
             </button>
           </Link>
-          <Link href="/supervisor">
+          <Link href="/admin">
             <button className={styles.button}>
               Supervisor&apos;s Portal
             </button>

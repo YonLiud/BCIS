@@ -22,11 +22,18 @@ function MyApp({ Component, pageProps }) {
     <div className={headerStyle.nav}>
       {/* if path is not homepage, add a button to return home */}
       {CurrentPath() !== '/' && (
-        <Link href="/">
-          <a className={headerStyle.button}>
-            Home
-          </a>
-        </Link>
+        <>
+          <Link href="/">
+            <a className={headerStyle.button}>
+              Home
+            </a>
+          </Link>
+          <Link href="/admin">
+            <a className={headerStyle.button}>
+              Admin
+            </a>
+          </Link>
+        </>
       )}
     </div>
   </div>
