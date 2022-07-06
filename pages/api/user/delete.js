@@ -37,7 +37,7 @@ export default async function handler (req, res) {
         return res.status(404).json({ error: 'User does not exist' })
     }
     // check if user's permit level is high enough to delete target
-    if (meuser.permitLevel < target.permitLevel) {
+    if (meuser.permitLevel <= target.permitLevel) {
         Log.create({
             message: `User ${meuser.name} tried to delete user ${target.name} but was denied access`,
         })
