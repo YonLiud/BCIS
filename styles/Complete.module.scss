@@ -1,0 +1,50 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  // padding: rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.button {
+  width: 75vw;
+  max-height: 20vh;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+
+// if on mobile, make the button bigger
+  @media (max-width: 768px) {
+    width: 100vw;
+    max-height: 30vh;
+  }
+
+  @media (min-width: 768px) {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.8);
+  }
+}
+
+.button a {
+  font-size: 5vw;
+}

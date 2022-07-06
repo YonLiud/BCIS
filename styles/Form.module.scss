@@ -1,0 +1,134 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  // font-family: Razed;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.form a {
+  color: rgb(9, 118, 206);
+  text-decoration: underline;
+  transition: 250ms;
+  &:hover {
+    // shadow
+    text-shadow: 0 0 0.5rem rgb(9, 118, 206);
+  }
+}
+
+.form {
+  width: 100%;
+  max-width: 50vw;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+} 
+
+.error {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.input_field {
+  margin-bottom: 1rem;
+  // ::-webkit-input-placeholder {
+  //   text-align: center;
+  // }
+}
+
+.input_field .comment {
+  font-size: 1rem;
+  
+}
+
+.input_field label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.input_field input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  transition: 250ms;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #000;
+    // shadow
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+.input_field input:disabled {
+  background-color: #eee;
+  &:hover {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.input_field textarea {
+  min-width: 100%;
+  min-height: 50%;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  transition: 250ms;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #000;
+    // shadow
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+.input_field p {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.input_field button {
+  width: 100%;
+
+}
