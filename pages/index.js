@@ -27,6 +27,10 @@ export default function Home() {
         Blaine County Indexing System
         </h2>
         <p className={styles.description}>
+          Upload, index, and search your patrol recordings and logs.
+        </p>
+
+        <p className={styles.description}>
           <Link href="/upload">
             <button className={styles.button}>
               Upload Footage
