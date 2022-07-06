@@ -8,7 +8,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-export default function lookup() {
+export default function Lookup() {
     const [error, setError] = useState(null);
     const [results, setResults] = useState(null);
 
