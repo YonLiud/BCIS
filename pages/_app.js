@@ -6,10 +6,10 @@ import footerStyle from '../styles/Footer.module.scss'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-var currentPath = () => {
-  const Router = useRouter()
-  return Router.pathname
-}
+// var currentPath = () => {
+//   // const Router = useRouter()
+//   return Router.pathname
+// }
 
 function MyApp({ Component, pageProps }) {
 
@@ -17,7 +17,8 @@ function MyApp({ Component, pageProps }) {
     <>
   <div className={headerStyle.header}>
     <h1 className={headerStyle.title}>
-      BCIS <span className={headerStyle.code}>{currentPath()}</span>
+      BCIS
+      {/* <span className={headerStyle.code}>{currentPath()}</span> */}
     </h1>
     <div className={headerStyle.nav}>
       {/* if path is not homepage, add a button to return home */}
