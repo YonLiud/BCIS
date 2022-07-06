@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     </h1>
     <div className={headerStyle.nav}>
       {/* if path is not homepage, add a button to return home */}
-      {currentPath() !== '/' && (
+      {CurrentPath() !== '/' && (
         <Link href="/">
           <a className={headerStyle.button}>
             Home
