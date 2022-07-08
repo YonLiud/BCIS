@@ -38,9 +38,14 @@
     text-decoration: none;
     margin: 0 1rem;
     transition: 150ms;
+    border: 1px solid #000;
+    border-radius: .3rem;
     &:hover {
-        text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+        color: #fff;
+        background: #000;
     }
+    border-spacing: 2rem;
+
 
 }
 

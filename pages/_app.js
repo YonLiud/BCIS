@@ -20,17 +20,32 @@ function MyApp({ Component, pageProps }) {
       BCIS <span className={headerStyle.code}>{CurrentPath()}</span>
     </h1>
     <div className={headerStyle.nav}>
-      {/* if path is not homepage, add a button to return home */}
+      {CurrentPath().includes('/admin') && (
+          (CurrentPath() !== '/admin') && (
+            <>
+              <Link href="/admin">
+                <a className={headerStyle.button}>
+                  Admin
+                </a>
+              </Link>
+            </>
+          )
+      )}
+      {/* if path is not about, add it */}
+      {CurrentPath() === '/' && (
+        <>
+          <Link href="/about">
+            <a className={headerStyle.button}>
+              About
+            </a>
+          </Link>
+        </>
+      )}
       {CurrentPath() !== '/' && (
         <>
           <Link href="/">
             <a className={headerStyle.button}>
               Home
-            </a>
-          </Link>
-          <Link href="/admin">
-            <a className={headerStyle.button}>
-              Admin
             </a>
           </Link>
         </>
