@@ -2,8 +2,8 @@ var crypto = require("crypto");
 import mongoose from 'mongoose';
 import { report } from 'process';
 
-import dbConnect from '../../../lib/dbConnect'
-import Report from '../../../lib/models/Report'
+import dbConnect from '../../../../lib/dbConnect'
+import Report from '../../../../lib/models/Report'
 
 export default async function handler (req, res) {
     if (req.method !== 'POST') {

@@ -28,7 +28,7 @@ export default function Lookup() {
                 setResults(response.data.reports);
                 console.log(response.data.reports);
                 setError(null);
-                
+
                 if (response.data.reports.length === 0) {
                     setError("No reports found");
                 }
@@ -78,6 +78,13 @@ export default function Lookup() {
                             This will return all reports that were uploaded with the key.
                         </p>
                     </div>
+                    <div className={styles.input_field}>
+                        <Link href="/lookup/tags">
+                            <button className={styles.button} type="button">
+                                lookup_tags
+                            </button>
+                        </Link>
+                    </div>
                 </form>
             </div>
             <div className={styles.results}>
@@ -98,7 +105,15 @@ export default function Lookup() {
                                 <div className={styles.result_name}>
                                     <span className={styles.label}>Name</span> {result.name}
                                 </div>
-                                {/* if result.comments is not empty */}
+                                {result.tags.length === 0 ? (
+                                    <div className={styles.result_tags}>
+                                        <span className={styles.label}>Tags</span> <span className={styles.num}>No Tags</span>
+                                    </div>
+                                ) : (
+                                        <div className={styles.result_tags}>
+                                            <span className={styles.label}>Tags</span> {result.tags.join(', ')}
+                                        </div>
+                                )}
                                 {result.comments !== "" ? (
                                     <div className={styles.result_comments}>
                                         <span className={styles.label}>Comments</span> {result.comments}
