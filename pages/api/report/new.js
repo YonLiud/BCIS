@@ -14,7 +14,7 @@ export default async function handler (req, res) {
     }
     await dbConnect()
 
-    const { key, URI, comments } = req.body
+    const { key, URI, comments, tags } = req.body
     var name = 'Anonymous'
     // compare key with user key
     try {
@@ -33,6 +33,7 @@ export default async function handler (req, res) {
         report = new Report({
             key,
             URI,
+            tags,
             comments,
             createdAt: new Date(),
             name

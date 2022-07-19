@@ -19,7 +19,15 @@ export default async function handler (req, res) {
         if (!reports) {
             return res.status(401).json({ error: 'Unauthorized' })
         }
-        return res.status(200).json({ reports })
+
+        // return reports without key   
+        var reportsWithoutKey = []
+        for (var i = 0; i < reports.length; i++) {
+            var report = reports[i]
+            delete report.key
+            reportsWithoutKey.push(report)
+        }
+        return res.status(200).json({ reports: reportsWithoutKey })
     }
     catch (err) {
         return res.status(500).json({ error: err.message })

@@ -14,8 +14,7 @@ export default function New() {
         var Key
         var URL
         var comments = null
-
-        // console.log(event.target.elements)
+        var tags = ''
 
         // if key or url are empty, return error
         if (event.target.elements.key.value === "" || event.target.elements.url.value === "") {
@@ -23,9 +22,10 @@ export default function New() {
             return
         }
         else {
-            Key = event.target.elements.key.value
-            URL = event.target.elements.url.value
-            comments = event.target.elements.comment.value
+            Key =       event.target.elements.key.value
+            URL =       event.target.elements.url.value
+            comments =  event.target.elements.comment.value
+            tags =      event.target.elements.tags.value
         }
 
         // check if key is 32 characters long
@@ -39,12 +39,20 @@ export default function New() {
             setError(`URL must contain a valid protocol`);
             return;
         }
+        
+        // parse tags
+        var tags = tags.toLowerCase()
+        
+        var tagArray = tags.split(',')
+
+        
 
         // send request to server
         axios.post('/api/report/new', {
             key: Key,
             URI: URL,
-            comments: comments
+            comments: comments,
+            tags: tagArray
         })
             .then(function (response) {
                 console.log(response);
@@ -103,7 +111,7 @@ export default function New() {
                     </div>
                     <div className={styles.input_field}>
                         <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tags" name="tags" placeholder='Bank, Lethal' disabled />
+                        <input type="text" id="tags" name="tags" placeholder='Bank,Robbery,etc'/>
                         <p className={styles.comment}>
                             *Separate tags with commas.
                         </p>

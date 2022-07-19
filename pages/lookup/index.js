@@ -28,6 +28,10 @@ export default function Lookup() {
                 setResults(response.data.reports);
                 console.log(response.data.reports);
                 setError(null);
+                
+                if (response.data.reports.length === 0) {
+                    setError("No reports found");
+                }
             }
             )
             .catch(function (error) {
@@ -70,6 +74,9 @@ export default function Lookup() {
                         <button className={styles.button} type="submit">
                             Search
                         </button>
+                        <p className={styles.comment}>
+                            This will return all reports that were uploaded with the key.
+                        </p>
                     </div>
                 </form>
             </div>
