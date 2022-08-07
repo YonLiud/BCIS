@@ -44,22 +44,15 @@ export default function AddUser() {
                 setError(response.data.error);
             } else {
                 setError("");
-                alert("User added successfully");
+                user = response.data.user;
+                alert("User added successfully, check console for info");
+                console.log(user)
                 window.location.href = "/admin";
             }
         }
         ).catch(function (error) {
             console.log(error);
-            if (error.response.status === 401) {
-                setError("Unauthorized");
-            }
-            if (error.response.status === 400) {
-                setError("User already exists");
-            }
-            // else display error message
-            else {
-                setError("Error creating user, Check console for more info");
-            }
+            setError("Error creating user, Check console for more info");
         }
         );
 

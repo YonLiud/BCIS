@@ -60,7 +60,7 @@ export default async function handler (req, res) {
     }
     try {
         const user = await User.create({ name, key })
-        return res.status(201).json(user)
+        return res.status(200).json(user)
     }
     catch (err) {
         return res.status(500).json({ error: err.message })
