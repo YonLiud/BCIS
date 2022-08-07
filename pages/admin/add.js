@@ -44,7 +44,7 @@ export default function AddUser() {
                 setError(response.data.error);
             } else {
                 setError("");
-                alert("User added successfully, Contact BCIS Managment for futher instructions");
+                alert("User added successfully, Contact BCIS Management for futher instructions");
                 window.location.href = "/admin";
             }
         }
