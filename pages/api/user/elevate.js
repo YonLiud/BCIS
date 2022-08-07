@@ -36,7 +36,15 @@ export default async function handler (req, res) {
         return res.status(403).json({ error: 'You cannot elevate yourself' })
     }
 
-    // user cannot elevate someone who is their permitLevel or higher
+    //  user cannot elevate if his permit level is lower than 4
+    if (user.permitLevel < 4) {
+        Log.create({
+            message: `${user.name} tried to elevate ${target.name} but was denied access`
+        })
+        return res.status(403).json({ error: 'Unauthorized' })
+    }
+    
+
     if (user.permitLevel <= (target.permitLevel+1)) {
         Log.create({
             message: `${user.name} tried to elevate ${target.name} but their permitLevel was too high`
