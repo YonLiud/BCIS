@@ -44,9 +44,7 @@ export default function AddUser() {
                 setError(response.data.error);
             } else {
                 setError("");
-                user = response.data.user;
-                alert("User added successfully, check console for info");
-                console.log(user)
+                alert("User added successfully, Contact BCIS Managment for futher instructions");
                 window.location.href = "/admin";
             }
         }
