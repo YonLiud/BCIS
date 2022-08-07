@@ -24,9 +24,9 @@ export default async function handler (req, res) {
     if (!meuser) {
         return res.status(401).json({ error: 'Unauthorized' })
     }
-    if (meuser.permitLevel < 1) {
+    if (meuser.permitLevel < 2) {
         Log.create({
-            message: `User ${meuser.name} tried to access /api/user/new but was denied access`,
+            message: `User ${meuser.name} tried to access /api/user/delete but was denied access`,
         })
         return res.status(401).json({ error: 'Unauthorized' })
     }
