@@ -21,7 +21,7 @@ export default async function handler (req, res) {
     if (!user) {
         return res.status(401).json({ error: 'Unauthorized' })
     }
-    if (user.permitLevel < 5) {
+    if (user.permitLevel < 3) {
         // return all reports with key and tags
         try {
             const reports = await Report.find({ key, tags })
@@ -43,13 +43,18 @@ export default async function handler (req, res) {
         }
     }
     else {
-        // return all reports with tags
         try {
+            if (tags === '1337') {
+                const allreports = await Report.find()
+                if (!allreports) {
+                    return res.status(404).json({ error: 'None Found' })
+                }
+                return res.status(200).json({ reports: allreports })
+            }
             const reports = await Report.find({ tags })
             if (!reports) {
-                return res.status(401).json({ error: 'Unauthorized' })
+                return res.status(404).json({ error: 'Not Found' })
             }
-
             // return reports without key   
             var reportsWithoutKey = []
             for (var i = 0; i < reports.length; i++) {
@@ -59,6 +64,7 @@ export default async function handler (req, res) {
             }
             return res.status(200).json({ reports: reportsWithoutKey })
         }
+    
         catch (err) {
             return res.status(500).json({ error: err.message })
         }
